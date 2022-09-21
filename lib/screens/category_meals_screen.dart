@@ -12,7 +12,7 @@ class CategoryMealsScreen extends StatelessWidget {
     final categoryTitle = routeArgs['title'];
     final categoryId = routeArgs['id'];
     final categoryMeals = DUMMY_MEALS.where((meal) {
-      return meal.categories.contains(categoryId);
+      return (meal.categories.contains(categoryId)) ? true:false;
     }).toList();
     return Scaffold(
       appBar: AppBar(
@@ -21,11 +21,11 @@ class CategoryMealsScreen extends StatelessWidget {
       body: ListView.builder(
         itemBuilder: (ctx, index) {
           return MealItem(
-            title: DUMMY_MEALS[index].title,
-            imageUrl: DUMMY_MEALS[index].imageUrl,
-            duration: DUMMY_MEALS[index].duration,
-            complexity: DUMMY_MEALS[index].complexity,
-            affordability: DUMMY_MEALS[index].affordability,
+            title: categoryMeals[index].title,
+            imageUrl: categoryMeals[index].imageUrl,
+            duration: categoryMeals[index].duration,
+            complexity: categoryMeals[index].complexity,
+            affordability: categoryMeals[index].affordability,
           );
         },
         itemCount: categoryMeals.length,
