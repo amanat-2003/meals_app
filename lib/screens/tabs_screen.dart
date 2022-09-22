@@ -12,7 +12,10 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DefaultTabController(
+        length: 2,
+        // initialIndex: 0,
+        child: Scaffold(
           appBar: AppBar(
             title: Text("Meals"),
             bottom: TabBar(
@@ -34,6 +37,6 @@ class _TabsScreenState extends State<TabsScreen> {
               FavouritesScreen(),
             ],
           ),
-        );
+        ));
   }
 }
